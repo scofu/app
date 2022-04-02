@@ -1,5 +1,7 @@
 package com.scofu.app.bootstrap;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.google.common.io.Resources;
 import com.google.inject.Module;
 import java.io.File;
@@ -25,7 +27,8 @@ public class Modules {
    */
   @SuppressWarnings("UnstableApiUsage")
   public static Stream<Module> lookup(ClassLoader classLoader) throws IOException {
-    var file = new File("_modules");
+    checkNotNull(classLoader, "classLoader");
+    final var file = new File("_modules");
     if (!file.exists()) {
       final var resource = classLoader.getResource("_modules");
       if (resource == null) {
