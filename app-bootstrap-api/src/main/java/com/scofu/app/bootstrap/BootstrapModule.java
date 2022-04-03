@@ -3,7 +3,9 @@ package com.scofu.app.bootstrap;
 import com.scofu.common.inject.AbstractFeatureModule;
 
 /**
- * Looks up all modules in a class loader and installs them.
+ * Looks up all modules and installs them.
+ *
+ * <p>See {@link Modules#lookupAnnotated(ClassLoader)}.
  */
 public class BootstrapModule extends AbstractFeatureModule {
 
@@ -15,6 +17,6 @@ public class BootstrapModule extends AbstractFeatureModule {
 
   @Override
   protected void configure() {
-    Modules.lookup(classLoader).forEach(this::install);
+    Modules.lookupAnnotated(classLoader).forEach(this::install);
   }
 }
