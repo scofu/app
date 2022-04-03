@@ -14,8 +14,15 @@ public class ModuleLookupTest {
 
   @Test
   public void testLookup() {
+    final var injector = Guice.createInjector(Modules.lookup(getClass().getClassLoader()).toList());
+    final var animal = injector.getInstance(Key.get(String.class, named("Animal")));
+    assertEquals(animal, "Cat");
+  }
+
+  @Test
+  public void testLookupAnnotated() {
     final var injector = Guice.createInjector(
-        new BootstrapModule(getClass().getClassLoader()));
+        Modules.lookupAnnotated(getClass().getClassLoader()).toList());
     final var animal = injector.getInstance(Key.get(String.class, named("Animal")));
     assertEquals(animal, "Cat");
   }
