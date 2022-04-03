@@ -24,7 +24,7 @@ dependencies {
 }
 
 checkstyle {
-    toolVersion = "10.1"
+    toolVersion = "10.2-SNAPSHOT"
     config =
             resources.text.fromUri(uri("https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml"))
     println(configFile)
