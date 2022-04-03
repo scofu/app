@@ -2,12 +2,14 @@ package com.scofu.app.bungee;
 
 import com.google.inject.Scopes;
 import com.scofu.common.inject.AbstractFeatureModule;
+import com.scofu.common.inject.annotation.Module;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.PluginManager;
 
 /**
  * Binds common Bungee interfaces.
  */
+@Module
 public class AppBungeeModule extends AbstractFeatureModule {
 
   @Override

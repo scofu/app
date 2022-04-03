@@ -2,6 +2,7 @@ package com.scofu.app.bukkit;
 
 import com.google.inject.Scopes;
 import com.scofu.common.inject.AbstractFeatureModule;
+import com.scofu.common.inject.annotation.Module;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.plugin.PluginManager;
@@ -9,6 +10,7 @@ import org.bukkit.plugin.PluginManager;
 /**
  * Binds common Bukkit interfaces.
  */
+@Module
 public class AppBukkitModule extends AbstractFeatureModule {
 
   @Override
