@@ -22,8 +22,7 @@ public class Modules {
   }
 
   /**
-   * Returns a stream of all modules annotated with
-   * {@link com.scofu.common.inject.annotation.Module}.
+   * Returns a stream of all modules annotated with {@link Module}.
    *
    * @param classLoader the class loader
    */
@@ -68,8 +67,7 @@ public class Modules {
   }
 
   private static Stream<Module> readModules(Stream<String> stream) {
-    return stream.map(Modules::constructModuleByClassName)
-        .filter(Objects::nonNull);
+    return stream.map(Modules::constructModuleByClassName).filter(Objects::nonNull);
   }
 
   private static Module constructModuleByClassName(String name) {

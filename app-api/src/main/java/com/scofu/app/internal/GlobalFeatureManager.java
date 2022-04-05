@@ -40,6 +40,7 @@ public class GlobalFeatureManager extends AbstractFeatureManager {
   private Boolean doesFeatureIgnoreStage(Feature feature,
       Function<? super IgnoreGlobalFeatureManager, Boolean> stageExtractor) {
     return Optional.ofNullable(feature.getClass().getAnnotation(IgnoreGlobalFeatureManager.class))
-        .map(stageExtractor).orElse(false);
+        .map(stageExtractor)
+        .orElse(false);
   }
 }

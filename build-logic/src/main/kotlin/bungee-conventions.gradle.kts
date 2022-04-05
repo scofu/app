@@ -1,6 +1,3 @@
-import gradle.kotlin.dsl.accessors._30870a47e380c7c13eee96805f88c56d.bukkit
-import org.gradle.kotlin.dsl.the
-
 plugins {
     id("base-conventions")
     id("net.minecrell.plugin-yml.bungee")

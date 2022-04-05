@@ -26,7 +26,7 @@ dependencies {
 checkstyle {
     toolVersion = "10.2-SNAPSHOT"
     config =
-            resources.text.fromUri(uri("https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml"))
+        resources.text.fromUri(uri("https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml"))
     println(configFile)
     maxWarnings = 0
 }
@@ -99,10 +99,11 @@ tasks {
                 AppShadowing.FIRST_LEVEL -> {
                     duplicatesStrategy = DuplicatesStrategy.WARN
 
-                    val firstLevelDependencies = configurations.compileClasspath.get().resolvedConfiguration.firstLevelModuleDependencies
-                        .filter { !it.module.id.group.startsWith("com.scofu") }
-                        .flatMap { it.allModuleArtifacts }
-                        .map { it.file.name }
+                    val firstLevelDependencies =
+                        configurations.compileClasspath.get().resolvedConfiguration.firstLevelModuleDependencies
+                            .filter { !it.module.id.group.startsWith("com.scofu") }
+                            .flatMap { it.allModuleArtifacts }
+                            .map { it.file.name }
 
                     println("${project.name}-fld: ${firstLevelDependencies}")
 

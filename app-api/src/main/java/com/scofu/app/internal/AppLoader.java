@@ -37,9 +37,8 @@ public class AppLoader<A extends App> {
    * Attempts to load all the apps.
    */
   public void load() {
-    final var readySize = (int) appSet.stream().filter(
-            app -> !(app instanceof StatefulApp statefulApp)
-                || statefulApp.isReadyToLoad())
+    final var readySize = (int) appSet.stream()
+        .filter(app -> !(app instanceof StatefulApp statefulApp) || statefulApp.isReadyToLoad())
         .count();
     if (readySize != appSet.size()) {
       return;
