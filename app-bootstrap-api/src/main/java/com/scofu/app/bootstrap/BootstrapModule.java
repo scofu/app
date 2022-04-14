@@ -1,6 +1,7 @@
 package com.scofu.app.bootstrap;
 
 import com.scofu.common.inject.AbstractFeatureModule;
+import java.util.stream.Collectors;
 
 /**
  * Looks up all modules and installs them.
@@ -17,6 +18,11 @@ public class BootstrapModule extends AbstractFeatureModule {
 
   @Override
   protected void configure() {
-    Modules.lookupAnnotated(classLoader).forEach(this::install);
+    final var modules = Modules.lookupAnnotated(classLoader).toList();
+    System.out.println("Modules: " + modules.stream()
+        .map(module -> module.getClass().getName())
+        .collect(Collectors.joining(", ")));
+    modules.forEach(this::install);
+    System.out.println("Installed modules!");
   }
 }
