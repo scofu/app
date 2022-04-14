@@ -86,6 +86,7 @@ public class Modules {
 
   private static Module constructModule(Class<?> type) {
     try {
+      System.out.println("Constructing module: " + type);
       final var constructors = type.getConstructors()[0];
       return (Module) constructors.newInstance();
     } catch (ReflectiveOperationException e) {
