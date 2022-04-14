@@ -10,3 +10,7 @@ dependencies {
 app {
     this.mainClass.set("com.scofu.app.bootstrap.bukkit.AppBootstrapPlugin")
 }
+
+bukkit {
+    main="com.scofu.app.bootstrap.bukkit.AppBootstrapPlugin"
+}

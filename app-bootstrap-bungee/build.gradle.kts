@@ -10,3 +10,7 @@ dependencies {
 app {
     this.mainClass.set("com.scofu.app.bootstrap.bungee.AppBootstrapPlugin")
 }
+
+bungee {
+    main="com.scofu.app.bootstrap.bungee.AppBootstrapPlugin"
+}
