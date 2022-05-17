@@ -13,13 +13,10 @@ import java.util.Objects;
 import java.util.stream.Stream;
 import org.reflections.Reflections;
 
-/**
- * Module utility.
- */
+/** Module utility. */
 public class Modules {
 
-  private Modules() {
-  }
+  private Modules() {}
 
   /**
    * Returns a stream of all modules annotated with {@link Module}.
@@ -29,8 +26,7 @@ public class Modules {
   public static Stream<Module> lookupAnnotated(ClassLoader classLoader) {
     final var reflections = new Reflections("com.scofu");
     final var moduleAnnotation = com.scofu.common.inject.annotation.Module.class;
-    return reflections.get(TypesAnnotated.with(moduleAnnotation).asClass(classLoader))
-        .stream()
+    return reflections.get(TypesAnnotated.with(moduleAnnotation).asClass(classLoader)).stream()
         .filter(Module.class::isAssignableFrom)
         .map(Modules::constructModule);
   }

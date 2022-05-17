@@ -19,9 +19,11 @@ public class BootstrapModule extends AbstractFeatureModule {
   @Override
   protected void configure() {
     final var modules = Modules.lookupAnnotated(classLoader).toList();
-    System.out.println("Modules: " + modules.stream()
-        .map(module -> module.getClass().getName())
-        .collect(Collectors.joining(", ")));
+    System.out.println(
+        "Modules: "
+            + modules.stream()
+                .map(module -> module.getClass().getName())
+                .collect(Collectors.joining(", ")));
     modules.forEach(this::install);
     System.out.println("Installed modules!");
   }

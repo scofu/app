@@ -7,9 +7,7 @@ import com.google.inject.Guice;
 import com.google.inject.Key;
 import org.junit.jupiter.api.Test;
 
-/**
- * Tests module lookup.
- */
+/** Tests module lookup. */
 public class ModuleLookupTest {
 
   @Test
@@ -21,8 +19,8 @@ public class ModuleLookupTest {
 
   @Test
   public void testLookupAnnotated() {
-    final var injector = Guice.createInjector(
-        Modules.lookupAnnotated(getClass().getClassLoader()).toList());
+    final var injector =
+        Guice.createInjector(Modules.lookupAnnotated(getClass().getClassLoader()).toList());
     final var animal = injector.getInstance(Key.get(String.class, named("Animal")));
     assertEquals(animal, "Cat");
   }
