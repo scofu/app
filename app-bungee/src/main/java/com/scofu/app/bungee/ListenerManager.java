@@ -6,9 +6,7 @@ import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 
-/**
- * Manages features that also implement {@link Listener}.
- */
+/** Manages features that also implement {@link Listener}. */
 public class ListenerManager extends AbstractFeatureManager {
 
   private final Plugin plugin;
@@ -22,8 +20,8 @@ public class ListenerManager extends AbstractFeatureManager {
 
   @Override
   protected void load() {
-    streamWithType(Listener.class).forEach(
-        listener -> pluginManager.registerListener(plugin, listener));
+    streamWithType(Listener.class)
+        .forEach(listener -> pluginManager.registerListener(plugin, listener));
   }
 
   @Override

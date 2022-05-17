@@ -7,9 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.plugin.PluginManager;
 
-/**
- * Binds common Bukkit interfaces.
- */
+/** Binds common Bukkit interfaces. */
 @Module
 public class AppBukkitModule extends AbstractFeatureModule {
 

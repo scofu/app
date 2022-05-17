@@ -14,27 +14,27 @@ import java.util.function.Supplier;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- * Bukkit plugin.
- */
+/** Bukkit plugin. */
 public class BukkitPlugin extends JavaPlugin implements Plugin {
 
   private static final Supplier<AppLoader<BukkitPlugin>> GLOBAL_LOADER;
 
   static {
-    GLOBAL_LOADER = Suppliers.memoize(() -> AppLoader.newAppLoader(Stage.PRODUCTION,
-        AppSet.unresolved(() -> List.of(Bukkit.getPluginManager().getPlugins()))));
+    GLOBAL_LOADER =
+        Suppliers.memoize(
+            () ->
+                AppLoader.newAppLoader(
+                    Stage.PRODUCTION,
+                    AppSet.unresolved(() -> List.of(Bukkit.getPluginManager().getPlugins()))));
   }
 
   private Binder binder;
   private FeatureBinder featureBinder;
   private boolean readyToLoad;
-  @Inject
-  private FeatureBootstrap featureBootstrap;
+  @Inject private FeatureBootstrap featureBootstrap;
 
   @Override
-  public final void onLoad() {
-  }
+  public final void onLoad() {}
 
   @Override
   public final void onEnable() {
@@ -52,8 +52,7 @@ public class BukkitPlugin extends JavaPlugin implements Plugin {
     return readyToLoad;
   }
 
-  protected void configure() {
-  }
+  protected void configure() {}
 
   @Override
   public final void configure(Binder binder) {
@@ -77,4 +76,3 @@ public class BukkitPlugin extends JavaPlugin implements Plugin {
     return binder;
   }
 }
-

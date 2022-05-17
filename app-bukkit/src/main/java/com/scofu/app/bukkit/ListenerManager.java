@@ -7,9 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
-/**
- * Manages features that also implement {@link Listener}.
- */
+/** Manages features that also implement {@link Listener}. */
 public class ListenerManager extends AbstractFeatureManager {
 
   private final Plugin plugin;
@@ -23,10 +21,12 @@ public class ListenerManager extends AbstractFeatureManager {
 
   @Override
   protected void load() {
-    streamWithType(Listener.class).forEach(listener -> {
-      System.out.println("Registering listener: " + listener);
-      pluginManager.registerEvents(listener, plugin);
-    });
+    streamWithType(Listener.class)
+        .forEach(
+            listener -> {
+              System.out.println("Registering listener: " + listener);
+              pluginManager.registerEvents(listener, plugin);
+            });
   }
 
   @Override
