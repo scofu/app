@@ -25,7 +25,7 @@ public final class InternalAppSet<A extends App> implements AppSet<A> {
    * Creates and returns a new internal app set.
    *
    * @param unresolved the unresolved apps
-   * @param <A>        the type of the apps
+   * @param <A> the type of the apps
    */
   public static <A extends App> InternalAppSet<A> newInternalAppSet(
       Supplier<Collection<?>> unresolved) {

@@ -8,9 +8,7 @@ import com.scofu.app.internal.AppLoader;
 import com.scofu.common.inject.AbstractFeatureModule;
 import org.junit.jupiter.api.Test;
 
-/**
- * Tests {@link Plugin}.
- */
+/** Tests {@link Plugin}. */
 public class PluginTest {
 
   @Test
@@ -25,21 +23,23 @@ public class PluginTest {
       }
     }
 
-    final var notAlwaysReadyPlugin = new AbstractPlugin() {
-      boolean ready = false;
+    final var notAlwaysReadyPlugin =
+        new AbstractPlugin() {
+          boolean ready = false;
 
-      @Override
-      public boolean isReadyToLoad() {
-        return ready;
-      }
-    };
+          @Override
+          public boolean isReadyToLoad() {
+            return ready;
+          }
+        };
 
-    final var alwaysReadyPlugin = new AbstractPlugin() {
-      @Override
-      public boolean isReadyToLoad() {
-        return true;
-      }
-    };
+    final var alwaysReadyPlugin =
+        new AbstractPlugin() {
+          @Override
+          public boolean isReadyToLoad() {
+            return true;
+          }
+        };
 
     final var plugins = AppSet.resolved(notAlwaysReadyPlugin, alwaysReadyPlugin);
     final var pluginLoader = AppLoader.newAppLoader(Stage.PRODUCTION, plugins);
@@ -55,5 +55,4 @@ public class PluginTest {
     assertTrue(notAlwaysReadyPlugin.loaded);
     assertTrue(alwaysReadyPlugin.loaded);
   }
-
 }

@@ -4,9 +4,7 @@ import com.google.inject.Injector;
 import com.scofu.common.inject.Feature;
 import com.scofu.common.inject.FeatureModule;
 
-/**
- * App feature.
- */
+/** App feature. */
 public interface App extends FeatureModule, Feature {
 
   /**
@@ -14,7 +12,5 @@ public interface App extends FeatureModule, Feature {
    *
    * @param injector the injector
    */
-  default void inject(Injector injector) {
-  }
-
+  default void inject(Injector injector) {}
 }

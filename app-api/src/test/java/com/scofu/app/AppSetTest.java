@@ -9,9 +9,7 @@ import com.scofu.common.inject.AbstractFeatureModule;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-/**
- * Tests {@link AppSet}.
- */
+/** Tests {@link AppSet}. */
 public class AppSetTest {
 
   @Test
@@ -49,5 +47,4 @@ public class AppSetTest {
   }
 
   static class EmptyApp extends AbstractFeatureModule implements App {}
-
 }

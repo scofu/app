@@ -19,7 +19,7 @@ public interface AppSet<A extends App> extends Iterable<A> {
    * Creates and returns a new unresolved set of apps.
    *
    * @param unresolved the unresolved objects that may contain apps
-   * @param <A>        the type of the apps
+   * @param <A> the type of the apps
    */
   static <A extends App> AppSet<A> unresolved(Supplier<Collection<?>> unresolved) {
     checkNotNull(unresolved, "unresolved");
@@ -30,7 +30,7 @@ public interface AppSet<A extends App> extends Iterable<A> {
    * Creates and returns a new resolved set of apps.
    *
    * @param applications the apps
-   * @param <A>          the type of the apps
+   * @param <A> the type of the apps
    */
   @SafeVarargs
   static <A extends App> AppSet<A> resolved(A... applications) {
@@ -39,13 +39,9 @@ public interface AppSet<A extends App> extends Iterable<A> {
     return unresolved(() -> unresolved);
   }
 
-  /**
-   * Returns the size.
-   */
+  /** Returns the size. */
   int size();
 
-  /**
-   * Returns a stream of the apps.
-   */
+  /** Returns a stream of the apps. */
   Stream<A> stream();
 }
