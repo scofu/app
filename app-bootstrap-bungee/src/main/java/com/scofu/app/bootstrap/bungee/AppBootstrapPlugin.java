@@ -4,9 +4,7 @@ import com.scofu.app.bootstrap.BootstrapModule;
 import com.scofu.app.bungee.BungeePlugin;
 import net.md_5.bungee.api.plugin.Plugin;
 
-/**
- * Bootstraps all other modules and binds {@link Plugin}.
- */
+/** Bootstraps all other modules and binds {@link Plugin}. */
 public class AppBootstrapPlugin extends BungeePlugin {
 
   @Override
